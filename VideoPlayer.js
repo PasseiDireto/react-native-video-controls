@@ -393,6 +393,8 @@ export default class VideoPlayer extends Component {
             state.showControls = false;
             this.hideControlAnimation();
 
+            this.props.onHideControls && this.props.onHideControls();
+
             this.setState( state );
         }
     }
@@ -413,6 +415,8 @@ export default class VideoPlayer extends Component {
             this.hideControlAnimation();
             this.clearControlTimeout();
         }
+
+        this.props.onToggleControls && this.props.onToggleControls(state.showControls);
 
         this.setState( state );
     }
